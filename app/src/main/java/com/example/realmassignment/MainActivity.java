@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
     private String gender;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,19 +51,11 @@ public class MainActivity extends AppCompatActivity {
             student.setRoll(Integer.parseInt(String.valueOf(roll.getText())));
             student.setPhone((phone.getText().toString()));
 
-            sw.setChecked(false);
-            final Boolean switchState = sw.isChecked();
-
-            sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                    if(switchState) {
-                        gender = "Female";
-                    } else {
-                        gender = "Male";
-                    }
-                }
-            });
+            if(sw.isChecked()) {
+                gender = "Female";
+            } else {
+                gender = "Male";
+            }
             student.setGender(gender);
 
             realm.commitTransaction();
