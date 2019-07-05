@@ -1,8 +1,6 @@
 package com.example.realmassignment;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;

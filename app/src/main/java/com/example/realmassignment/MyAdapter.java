@@ -5,9 +5,9 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,8 +28,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item, parent, false);
 
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -43,6 +43,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.roll.setText(String.valueOf(student.getRoll()));
         holder.phone.setText(student.getPhone());
         holder.gender.setText(student.getGender());
+
+        if(holder.dept.getText().equals("IT")) {
+            holder.itemView.setBackgroundColor(Color.parseColor("#0000FF"));
+        }
+        else if(holder.dept.getText().equals("CSE")) {
+            holder.itemView.setBackgroundColor(Color.parseColor("#00FF00"));
+        }
+        else if(holder.dept.getText().equals("EE")) {
+            holder.itemView.setBackgroundColor(Color.parseColor("#FF0000"));
+        }
+        else if(holder.dept.getText().equals("ECE")) {
+            holder.itemView.setBackgroundColor(Color.parseColor("#FFFF00"));
+        }
 
     }
 
